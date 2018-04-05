@@ -1,83 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="ru.genplan.mybatis.mappers.EquipmentMapper">
-	<resultMap type="predicateValue" id="PredicateValue">
-	  <result property="dateValue" column="date_value"/>
-	  <result property="floatValue" column="num_value"/>
-	  <result property="intValue" column="int_value"/>
-	  <result property="stringValue" column="char_value"/>
-	</resultMap>
-	
+<mapper namespace="ru.genplan.mybatis.mappers.PredicateMapper">
 	<resultMap type="genplanPredicate" id="GenplanPredicate">
-	  <result property="predicateCode" column="date_value"/>
-	  <result property="predicateOperation" column="num_value"/>
-	  <result property="intValue" column="int_value"/>
-	  <result property="stringValue" column="char_value"/>
+	  <constructor>
+         <idArg column="predicate_id" javaType="int"/>
+         <arg column="predicate_name" javaType="String"/>
+         <arg column="predicate_type" javaType="int"/>
+      </constructor>
+      <collection property="logicalOperations" ofType="genplanLogicalOperation">
+	    <constructor>
+           <idArg column="logical_operation_id" javaType="int"/>
+           <arg column="parent_id" javaType="int"/>
+           <arg column="logical_operation_name" javaType="String"/>
+           <arg column="logical_operation_level" javaType="int"/>
+           <arg column="logical_operation_negate" javaType="String"/>
+        </constructor>
+        <collection property="predicateMember" ofType="genplanPredicateMember">
+           <constructor>
+              <idArg column="predicate_member_id" javaType="int"/>
+              <arg column="predicate_code" javaType="String"/>
+              <arg column="operation_code" javaType="String"/>
+              <arg column="predicate_member_negate" javaType="String"/>
+           </constructor>
+           <collection property="predicateValues" ofType="predicateValue">
+         	  <constructor>
+         		<idArg column="predicate_value_id" javaType="int"/>
+         		<arg column="int_value" javaType="int"/>
+         		<arg column="num_value" javaType="float"/>
+         		<arg column="char_value" javaType="String"/>
+         		<arg column="date_value" javaType="Date"/>
+      		  </constructor>
+           </collection>
+        </collection>
+      </collection>
 	</resultMap>
 	
-	<resultMap type="fixture" id="FixtureResult">
-	  <id property="id" column="id"/>
-	  <result property="id" column="id"/>
-      <result property="firstSectionNo" column="first_section_no"/>
-      <result property="lastSectionNo" column="last_section_no"/>
-      <result property="planogramId" column="planogram_id"/>
-      <result property="name" column="name"/>
-      <result property="fixtureTag" column="fixture_tag"/>
-      <result property="fixtureType" column="fixture_type"/>
-      <result property="x" column="x"/>
-      <result property="y" column="y"/>
-      <result property="z" column="z"/>
-      <result property="width" column="width"/>
-      <result property="height" column="height"/>
-      <result property="depth" column="depth"/>
-      <result property="leftOverHang" column="left_over_hang"/>
-      <result property="rightOveraHang" column="right_over_hang"/>
-      <result property="frontOverHang" column="front_over_hang"/>
-      <result property="backOverHang" column="back_over_hang"/>
-      <result property="leftBorder" column="left_border"/>
-      <result property="rigthBorder" column="rigth_border"/>
-      <result property="xspacing" column="xspacing"/>
-      <result property="yspacing" column="yspacing"/>
-      <result property="merchymax" column="merchymax"/>
-      <result property="space_available" column="spaceAvailable"/>
-	</resultMap>
-	
-	<resultMap type="section" id="SectionResult">
-	  <id property="id" column="id"/>
-	  <result property="id" column="id"/>
-      <result property="sectionNo" column="section_no"/>
-      <result property="planogramId" column="planogram_id"/>
-      <result property="name" column="name"/>
-      <result property="sectionTag" column="section_tag"/>
-      <result property="equipmentType" column="equipment_type"/>
-      <result property="x" column="x"/>
-      <result property="y" column="y"/>
-      <result property="z" column="z"/>
-      <result property="width" column="width"/>
-      <result property="height" column="height"/>
-      <result property="depth" column="depth"/>
-      <result property="leftOverHang" column="left_over_hang"/>
-      <result property="rightOveraHang" column="right_over_hang"/>
-      <result property="leftBorder" column="left_border"/>
-      <result property="rigthBorder" column="rigth_border"/>
-      <result property="merchymax" column="merchymax"/>
-      <result property="effectiveX" column="effective_x"/>
-      <result property="effectiveY" column="effective_y"/>
-      <result property="effectiveZ" column="effective_z"/>
-      <result property="effectiveWidth" column="effective_width"/>
-      <result property="effectiveHeight" column="effective_height"/>
-      <result property="effectiveDepth" column="effective_depth"/>
-    </resultMap>
-	<select id="getAllFixture" parameterType="int" resultMap="FixtureResult">
-	   select * from public.fixture where planogram_id=#{planogramId}
-	</select>
-	<select id="getAllSection" parameterType="int" resultMap="SectionResult">
-	   select * 
-	     from public.section 
-	    where planogram_id=#{planogramId}
-	      and name != 'SPACER'
-	</select>
-	<select id="getPlanogram" parameterType="int" resultMap="PlanogramResult">
-	   select * from public.planogram where id=#{planogramId}
+	<select id="getAllPredicates" parameterType="int" resultMap="GenplanPredicate">
+	   select * from public.predicates(#{planogramId})
 	</select>
 </mapper>

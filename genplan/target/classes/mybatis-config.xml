@@ -13,7 +13,8 @@
 		<typeAlias type="ru.genplan.mybatis.mappers.PlanogramData" alias="planogram"/>
 		<typeAlias type="ru.genplan.predicate.PredicateValue" alias="predicateValue"/>
 		<typeAlias type="ru.genplan.predicate.GenplanPredicate" alias="genplanPredicate"/>
-		<typeAlias type="ru.genplan.predicate.GenplanPredicates" alias="genplanPredicates"/>
+		<typeAlias type="ru.genplan.predicate.GenplanLogicalOperation" alias="genplanLogicalOperation"/>
+		<typeAlias type="ru.genplan.predicate.GenplanPredicateMember" alias="genplanPredicateMember"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -28,5 +29,6 @@
 	</environments>
 	<mappers>
       <mapper class="ru.genplan.mybatis.mappers.EquipmentMapper" />
+      <mapper class="ru.genplan.mybatis.mappers.PredicateMapper" />
     </mappers>
 </configuration>

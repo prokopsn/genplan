@@ -1,6 +1,5 @@
 package ru.genplan.equipment;
 
-import java.util.List;
 import java.util.function.Predicate;
 
 public interface IEquipment {

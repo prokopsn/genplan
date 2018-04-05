@@ -2,7 +2,8 @@ package ru.genplan.mybatis.mappers;
 
 import java.util.List;
 
+import ru.genplan.predicate.GenplanPredicate;
+
 public interface PredicateMapper {
-		List<FixtureData> getAllFixture(int planogramId);
-		List<SectionData> getAllSection(int planogramId);
+		List<GenplanPredicate> getAllPredicates(int planogramId);
 }

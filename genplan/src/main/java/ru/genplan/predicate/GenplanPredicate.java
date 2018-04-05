@@ -3,31 +3,32 @@ package ru.genplan.predicate;
 import java.util.List;
 
 public class GenplanPredicate {
-	private Integer id;
-	private String predicateCode;
-	private String predicateOperation;
-	private List<PredicateValue> predicateValues;
 	
-	public GenplanPredicate(Integer id, String predicateCode, String predicateOperation,
-			List<PredicateValue> predicateValues) {
+	private Integer id;
+	private String name;
+	private Integer type;
+	private List<GenplanLogicalOperation> logicalOperations;
+	
+	public List<GenplanLogicalOperation> getGenplanLogicalOperation() {
+		return logicalOperations;
+	}
+	public void setGenplanLogicalOperation(List<GenplanLogicalOperation> logicalOperations) {
+		this.logicalOperations = logicalOperations;
+	}
+	public GenplanPredicate(Integer id, String name, Integer type) {
 		super();
 		this.id = id;
-		this.predicateCode = predicateCode;
-		this.predicateOperation = predicateOperation;
-		this.predicateValues = predicateValues;
+		this.name = name;
+		this.type = type;
 	}
-	
 	public Integer getId() {
 		return id;
 	}
-	
-	public String getPredicateCode() {
-		return predicateCode;
+	public String getName() {
+		return name;
 	}
-	public String getPredicateOperation() {
-		return predicateOperation;
+	public Integer getType() {
+		return type;
 	}
-	public List<PredicateValue> getPredicateValues() {
-		return predicateValues;
-	}
+
 }
