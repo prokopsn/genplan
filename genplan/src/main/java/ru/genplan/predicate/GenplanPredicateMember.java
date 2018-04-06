@@ -36,4 +36,12 @@ public class GenplanPredicateMember {
 	public Boolean getNegate() {
 		return negate;
 	}
+	
+	@Override
+	public String toString() {
+		return "id="+id+", predicateCode="+predicateCode
+			  +", predicateOperation="+predicateOperation
+			  +", negate="+negate
+			  +", predicateValues="+predicateValues;
+	}
 }

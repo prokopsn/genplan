@@ -1,8 +1,10 @@
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -20,6 +22,7 @@ import ru.genplan.mybatis.mappers.SectionData;
 import ru.genplan.predicate.GenplanLogicalOperation;
 import ru.genplan.predicate.GenplanPredicate;
 import ru.genplan.predicate.GenplanPredicateMember;
+import ru.genplan.predicate.PredicateFactory;
 import ru.genplan.predicate.PredicateFunction;
 import ru.genplan.predicate.PredicateOperation;
 import ru.genplan.predicate.PredicateValue;
@@ -41,6 +44,15 @@ public class TestMainClass {
 				System.out.println(m.getPredicateValues().size());
 			}*/
 		}
+		
+		List<String> ls = Arrays.asList("11","23","55");
+		BiPredicate<String,String> prd = (s1,s2) -> { System.out.println(s1+" "+s2);return s1==s2;}; 
+		List<String> ddd = ls.stream().filter(p->prd.test(p, "23")).collect(Collectors.toList());
+		for(String s:ddd) {
+			System.out.println(s);
+		}
+		PredicateFactory<IFixture> pf = new PredicateFactory<IFixture>(1);
+		
 	    /*List<FixtureData> fixtures = new EquipmentService().getAllFixture(planogram_id);
 		List<SectionData> sections = new EquipmentService().getAllSection(planogram_id);
 		List<IFixture> fixs = new ArrayList<>();

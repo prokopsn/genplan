@@ -37,6 +37,17 @@ public class EquipmentPredicates {
 	public static PredicateFunction<IFixture> getPredicate(String predicateName) {
 		return predicates.get(predicateName);
 	}
+	
+	public static Predicate<IFixture> getPredicate(String predicateCode
+			                                     , PredicateOperation oper
+			                                     , List<PredicateValue> values
+			                                     , Boolean negate) {
+		if (predicates.containsKey(predicateCode)) {
+		   return predicates.get(predicateCode).apply(oper, values, negate);
+		} else {
+		   throw new IllegalArgumentException(String.format("Predicate [%s] not defined for equipment",predicateCode));
+		}
+	}
 	/**
 	 * Метод выполняет объединение предикатов через Predicate.and
 	 * @param predList - список предикатов

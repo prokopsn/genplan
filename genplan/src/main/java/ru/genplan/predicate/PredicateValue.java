@@ -39,4 +39,9 @@ public class PredicateValue {
 		this.stringValue = stringValue;
 		this.dateValue = dateValue;
 	}
+	
+	@Override
+	public String toString() {
+		return "intValue="+intValue+", stringValue="+stringValue+", floatValue="+floatValue+", dateValue="+dateValue;
+	}
 }
