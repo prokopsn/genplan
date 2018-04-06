@@ -1,6 +1,7 @@
 package ru.genplan.equipment;
 
 import java.util.List;
+import java.util.Set;
 
 public interface IFixture {
 	/**
@@ -72,8 +73,8 @@ public interface IFixture {
 	 * Теги полки, разделитель ";"
 	 * @return
 	 */
-	public boolean checkFixtureTag(String tag);
-	public boolean checkSectionTag(String tag);
+	public Set<String> getFixtureTags();
+	public Set<String> getSectionTags();
 	
 	public int getSectionNo();
 	

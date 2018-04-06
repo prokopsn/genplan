@@ -3,11 +3,15 @@ package ru.genplan.predicate;
 import java.util.List;
 
 public class GenplanLogicalOperation {
+	public PredicateLogicalOperation getLogicalOperation() {
+		return logicalOperation;
+	}
 	private Integer id;
 	private Integer parentId;
 	private String logicalOperationCode;
+	private PredicateLogicalOperation logicalOperation;
 	private Integer logicalOperationlevel;
-	private String logicalOperationNegate;
+	private Boolean logicalOperationNegate;
 	private List<GenplanPredicateMember> predicateMember;
 	public GenplanLogicalOperation(Integer id, Integer parentId, String logicalOperationCode,
 			Integer logicalOperationlevel, String logicalOperationNegate) {
@@ -16,7 +20,8 @@ public class GenplanLogicalOperation {
 		this.parentId = parentId;
 		this.logicalOperationCode = logicalOperationCode;
 		this.logicalOperationlevel = logicalOperationlevel;
-		this.logicalOperationNegate = logicalOperationNegate;
+		this.logicalOperationNegate = logicalOperationNegate=="Y";
+		this.logicalOperation = logicalOperationCode=="AND"?PredicateLogicalOperation.AND:PredicateLogicalOperation.OR;
 	}
 	public List<GenplanPredicateMember> getPredicateMember() {
 		return predicateMember;
@@ -36,7 +41,7 @@ public class GenplanLogicalOperation {
 	public Integer getLogicalOperationlevel() {
 		return logicalOperationlevel;
 	}
-	public String getLogicalOperationNegate() {
+	public Boolean getLogicalOperationNegate() {
 		return logicalOperationNegate;
 	}
 }

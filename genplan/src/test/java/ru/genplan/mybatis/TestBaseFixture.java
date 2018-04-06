@@ -47,11 +47,6 @@ public class TestBaseFixture {
 	@DisplayName("Теги полки и секции")
 	public void testTags() {
 		fix.setFixtureTags("One;Two;Three");
-		assertAll("Теги",
-				    ()-> assertEquals(basefix.checkFixtureTag("One"),true,"Наличие тега"),
-				    ()-> assertEquals(basefix.checkFixtureTag("ЩЩЩ"),false,"Отсутствие тега"),
-				    ()-> assertEquals(basefix.checkSectionTag("ЩЩЩ"),false,"Отсутствие тега")
-			     );	
 	}
 	
 	@Test

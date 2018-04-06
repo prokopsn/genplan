@@ -1,9 +1,14 @@
 package ru.genplan.predicate;
 
 import java.util.Date;
-
+/**
+ * Класс представляет собой контейнер для хранения значений предиктов.
+ * В настоящее время имеется четыре вида значений:
+ * 		String, Integer, Float и Date
+ * @author Sergey Prokopchik
+ *
+ */
 public class PredicateValue {
-	
 	private Integer intValue;
 	private Float floatValue;
 	private String stringValue;

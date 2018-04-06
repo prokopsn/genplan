@@ -8,7 +8,7 @@ public class GenplanPredicateMember {
 	}
 	private Integer id;
 	private String predicateCode;
-	private String predicateOperation;
+	private PredicateOperation predicateOperation;
 	private Boolean negate;
 	private List<PredicateValue> predicateValues;
 	
@@ -16,7 +16,7 @@ public class GenplanPredicateMember {
 		super();
 		this.id = id;
 		this.predicateCode = predicateCode;
-		this.predicateOperation = predicateOperation;
+		this.predicateOperation = PredicateOperation.get(predicateOperation);
 		this.negate = negate=="Y";
 	}
 	
@@ -27,7 +27,7 @@ public class GenplanPredicateMember {
 	public String getPredicateCode() {
 		return predicateCode;
 	}
-	public String getPredicateOperation() {
+	public PredicateOperation getPredicateOperation() {
 		return predicateOperation;
 	}
 	public List<PredicateValue> getPredicateValues() {

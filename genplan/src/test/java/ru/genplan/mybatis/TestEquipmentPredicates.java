@@ -6,7 +6,7 @@ import java.util.function.Predicate;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import ru.genplan.equipment.EquipmentPredicates;
+import ru.genplan.equipment.EquipmentPredicatesOld;
 import ru.genplan.equipment.IFixture;
 
 public class TestEquipmentPredicates {
@@ -14,7 +14,7 @@ public class TestEquipmentPredicates {
 	@DisplayName("Координаты")
 	public void testOne() {
 		Predicate<IFixture> pf;
-		pf = EquipmentPredicates.predicateOr(Arrays.asList(EquipmentPredicates.checkDownFixtueNum(1)
-				                                          ,EquipmentPredicates.checkUpFixtueNum(1)));
+		pf = EquipmentPredicatesOld.predicateOr(Arrays.asList(EquipmentPredicatesOld.checkDownFixtueNum(1)
+				                                          ,EquipmentPredicatesOld.checkUpFixtueNum(1)));
 	}
 }

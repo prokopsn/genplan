@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import ru.genplan.equipment.EquipmentPredicates;
+import ru.genplan.equipment.EquipmentPredicatesOld;
 import ru.genplan.equipment.IEquipment;
 import ru.genplan.equipment.IFixture;
 import ru.genplan.mybatis.mappers.TestEquipmentService;
@@ -49,10 +49,10 @@ public class TestBaseEquipmentFactory {
 	@DisplayName("√енераци€ нового оборудовани€ по предикатам")
 	public void testGeneratePredicate() {
 		Predicate<IFixture> pf;
-		pf = EquipmentPredicates.predicateOr(Arrays.asList(
-				EquipmentPredicates.predicateAnd(Arrays.asList(EquipmentPredicates.checkDownFixtueNum(2),
-						                                       EquipmentPredicates.checkX(800)))
-			   ,EquipmentPredicates.checkUpFixtueNum(1)));
+		pf = EquipmentPredicatesOld.predicateOr(Arrays.asList(
+				EquipmentPredicatesOld.predicateAnd(Arrays.asList(EquipmentPredicatesOld.checkDownFixtueNum(2),
+						                                       EquipmentPredicatesOld.checkX(800)))
+			   ,EquipmentPredicatesOld.checkUpFixtueNum(1)));
 		baseEq.generate(pf,0,0,1165,182);
 	}
 }

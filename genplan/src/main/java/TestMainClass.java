@@ -1,12 +1,13 @@
 
+import java.util.Arrays;
 import java.util.List;
-
+import java.util.function.Function;
+import java.util.function.Predicate;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
-
+import ru.genplan.equipment.EquipmentPredicatesOld;
 import ru.genplan.equipment.IEquipment;
 import ru.genplan.equipment.IEquipmentFactory;
 import ru.genplan.equipment.IFixture;
@@ -19,6 +20,9 @@ import ru.genplan.mybatis.mappers.SectionData;
 import ru.genplan.predicate.GenplanLogicalOperation;
 import ru.genplan.predicate.GenplanPredicate;
 import ru.genplan.predicate.GenplanPredicateMember;
+import ru.genplan.predicate.PredicateFunction;
+import ru.genplan.predicate.PredicateOperation;
+import ru.genplan.predicate.PredicateValue;
 
 
 public class TestMainClass {
@@ -28,6 +32,8 @@ public class TestMainClass {
 		int planogram_id = 1239720;
 		IEquipmentFactory factory = new BaseEquipmentFactory();
 		IEquipment eq = factory.generateEquipment(planogram_id);
+		PredicateFunction<IFixture> func = EquipmentPredicatesOld::sectionName;
+		Predicate<IFixture>  pr = func.apply(PredicateOperation.EQUAL, Arrays.asList(new PredicateValue(1,null,null,"SEC",null)),false);
 		List<GenplanPredicate> predicates = new PredicateService().getAllPredicates(1);
 		for(GenplanPredicate p:predicates) {
 			/*for(GenplanPredicateMember m: p.getPredicateMember()) {

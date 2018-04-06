@@ -2,6 +2,7 @@ package ru.genplan.mybatis;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -172,17 +173,13 @@ public class BaseFixture implements IFixture {
 	}
 
 	@Override
-	public boolean checkSectionTag(String tag) {
-		if (fixtureData.getSection().getSecTag() == null) 
-			return false;
-		return fixtureData.getSection().getSecTag().contains(tag);
+	public Set<String> getSectionTags() {
+		return fixtureData.getSection().getSecTag();
 	}
 
 	@Override
-	public boolean checkFixtureTag(String tag) {
-		if (fixtureData.getFixTag() == null) 
-			return false;
-		return fixtureData.getFixTag().contains(tag);
+	public Set<String> getFixtureTags() {
+		return fixtureData.getFixTag();
 	}
 
 	@Override
