@@ -2,6 +2,10 @@ package ru.genplan.mybatis.mappers;
 
 import java.util.List;
 
+import ru.genplan.equipment.data.FixtureData;
+import ru.genplan.equipment.data.PlanogramData;
+import ru.genplan.equipment.data.SectionData;
+
 
 public interface EquipmentMapper {
 	List<FixtureData> getAllFixture(int planogramId);

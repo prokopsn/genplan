@@ -1,4 +1,4 @@
-package ru.genplan.mybatis.mappers;
+package ru.genplan.equipment.data;
 
 public class PlanogramData {
 	int id;

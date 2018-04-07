@@ -12,6 +12,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import ru.genplan.equipment.data.FixtureData;
+
 @DisplayName("Test FixtureData")
 public class TestFixtureData {
 	private static List<FixtureData> fixs;

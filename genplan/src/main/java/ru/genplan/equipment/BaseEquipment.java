@@ -1,4 +1,4 @@
-package ru.genplan.mybatis;
+package ru.genplan.equipment;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -10,12 +10,9 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import ru.genplan.equipment.IEquipment;
-import ru.genplan.equipment.IFixture;
-
 public class BaseEquipment implements IEquipment {
 	private static final Logger LOG = LogManager.getLogger(BaseEquipment.class);
-	List<IFixture> fixtures;
+	private List<IFixture> fixtures;
 	int x;
 	int y;
 	int width;

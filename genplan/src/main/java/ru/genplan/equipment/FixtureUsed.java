@@ -6,7 +6,6 @@ import java.util.Set;
 import java.util.TreeSet;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import ru.genplan.mybatis.BaseFixture;
 
 /**
  * 

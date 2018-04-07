@@ -1,4 +1,4 @@
-package ru.genplan.mybatis;
+package ru.genplan.equipment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,9 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Iterator;
 
-import ru.genplan.equipment.FixtureUsed;
-import ru.genplan.equipment.IFixture;
-import ru.genplan.mybatis.mappers.FixtureData;
+import ru.genplan.equipment.data.FixtureData;
 
 public class BaseFixture implements IFixture {
 	

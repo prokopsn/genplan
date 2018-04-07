@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import ru.genplan.equipment.BaseEquipmentFactory;
 import ru.genplan.equipment.EquipmentPredicatesOld;
 import ru.genplan.equipment.IEquipment;
 import ru.genplan.equipment.IFixture;

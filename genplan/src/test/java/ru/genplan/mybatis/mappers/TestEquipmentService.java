@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import ru.genplan.equipment.data.FixtureData;
+import ru.genplan.equipment.data.PlanogramData;
+import ru.genplan.equipment.data.SectionData;
 import ru.genplan.mybatis.MyBatisUtils;
 
 public class TestEquipmentService {

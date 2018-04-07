@@ -2,14 +2,13 @@ package ru.genplan.equipment;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.List;
 import java.util.function.Predicate;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import ru.genplan.mybatis.mappers.FixtureData;
-import ru.genplan.mybatis.mappers.SectionData;
+import ru.genplan.equipment.data.FixtureData;
+import ru.genplan.equipment.data.SectionData;
 /**
  * Набор статических методов для работы с оборудованием
  *

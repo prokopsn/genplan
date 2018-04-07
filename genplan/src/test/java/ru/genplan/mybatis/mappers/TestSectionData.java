@@ -10,6 +10,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import ru.genplan.equipment.data.SectionData;
+
 @DisplayName("Test SectionData")
 public class TestSectionData {
 	private static List<SectionData> sec;

@@ -1,4 +1,4 @@
-package ru.genplan.mybatis;
+package ru.genplan.equipment;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -9,14 +9,9 @@ import java.util.Map;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-
-import ru.genplan.equipment.IEquipment;
-import ru.genplan.equipment.IEquipmentFactory;
-import ru.genplan.equipment.IFixture;
+import ru.genplan.equipment.data.FixtureData;
+import ru.genplan.equipment.data.SectionData;
 import ru.genplan.mybatis.mappers.EquipmentService;
-import ru.genplan.mybatis.mappers.FixtureData;
-
-import ru.genplan.mybatis.mappers.SectionData;
 
 public class BaseEquipmentFactory implements IEquipmentFactory {
    private static final Logger LOG = LogManager.getLogger(BaseEquipmentFactory.class);
