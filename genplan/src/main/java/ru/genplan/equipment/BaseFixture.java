@@ -335,7 +335,36 @@ public class BaseFixture implements IFixture {
 	
 	@Override
 	public int getSectionFixtureCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return fixtureData.getSection().getSectionFixtureCount();
+	}
+
+	@Override
+	public int getGroupLeftEqualNo() {
+		return fixtureData.getSection().getGroupLeftEqualNo();
+	}
+
+	@Override
+	public int getGroupRightEqualNo() {
+		return fixtureData.getSection().getGroupRightEqualNo();
+	}
+
+	@Override
+	public int getGroupLeftNo() {
+		return fixtureData.getSection().getGroupLeftNo();
+	}
+
+	@Override
+	public int getGroupRightNo() {
+		return fixtureData.getSection().getGroupRightNo();
+	}
+
+	@Override
+	public int getLeftNo() {
+		return fixtureData.getSection().getLeftNo();
+	}
+
+	@Override
+	public int getRightNo() {
+		return fixtureData.getSection().getRightNo();
 	}
 }

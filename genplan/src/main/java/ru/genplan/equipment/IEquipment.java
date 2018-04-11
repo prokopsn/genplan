@@ -1,5 +1,6 @@
 package ru.genplan.equipment;
 
+import java.util.List;
 import java.util.function.Predicate;
 
 public interface IEquipment {
@@ -39,5 +40,6 @@ public interface IEquipment {
 	public int getFixtureCount();
 	
 	public int getSectionCount();
+	public List<IFixture> getFixtures();
 
 }

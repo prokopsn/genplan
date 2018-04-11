@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ru.genplan.mybatis.predicate.PredicateMapper">
+	<resultMap type="genplanPredicate" id="GenplanPredicate">
+	  <constructor>
+         <idArg column="predicate_id" javaType="int"/>
+         <arg column="predicate_name" javaType="String"/>
+         <arg column="predicate_type" javaType="int"/>
+      </constructor>
+      <collection property="logicalOperations" ofType="genplanLogicalOperation">
+	    <constructor>
+           <idArg column="logical_operation_id" javaType="int"/>
+           <arg column="parent_id" javaType="int"/>
+           <arg column="logical_operation_name" javaType="String"/>
+           <arg column="logical_operation_level" javaType="int"/>
+           <arg column="logical_operation_negate" javaType="String"/>
+        </constructor>
+        <collection property="predicateMember" ofType="genplanPredicateMember">
+           <constructor>
+              <idArg column="predicate_member_id" javaType="int"/>
+              <arg column="predicate_code" javaType="String"/>
+              <arg column="operation_code" javaType="String"/>
+              <arg column="predicate_member_negate" javaType="String"/>
+           </constructor>
+           <collection property="predicateValues" ofType="predicateValue">
+         	  <constructor>
+         		<idArg column="predicate_value_id" javaType="int"/>
+         		<arg column="int_value" javaType="int"/>
+         		<arg column="num_value" javaType="float"/>
+         		<arg column="char_value" javaType="String"/>
+         		<arg column="date_value" javaType="Date"/>
+      		  </constructor>
+           </collection>
+        </collection>
+      </collection>
+	</resultMap>
+	
+	<select id="getAllPredicates" parameterType="int" resultMap="GenplanPredicate">
+	   select * from public.predicates(#{planogramId})
+	</select>
+</mapper>

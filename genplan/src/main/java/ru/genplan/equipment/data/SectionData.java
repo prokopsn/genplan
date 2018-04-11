@@ -26,12 +26,53 @@ public class SectionData {
 	private boolean rightBorder;
 	private int leftOverHang;
 	private int rightOverHang;
+	private int sectionFixtureCount;
 	private Set<String> secTag;
+	
 	/**
 	 * Номер группы секций слева.
 	 * Группой является оборудование стоящее рядом
 	 */
 	private int groupLeftNo;
+	
+	/**
+	 * Номер группы секций справа.
+	 * Группой является оборудование стоящее рядом
+	 */
+	private int groupRightNo;
+	
+	/**
+	 * Номер секции слева.
+	 * Совпадает с sectionNo
+	 */
+	private int leftNo;
+	
+	/**
+	 * Номер секции справа.
+	 * Совпадает с sectionNo
+	 */
+	private int rightNo;
+	
+	private int groupLeftEqualNo;
+	private int groupRightEqualNo;
+	
+	public int getGroupLeftEqualNo() {
+		return groupLeftEqualNo;
+	}
+
+	public void setGroupLeftEqualNo(int groupLeftEqualNo) {
+		this.groupLeftEqualNo = groupLeftEqualNo;
+	}
+
+	public int getGroupRightEqualNo() {
+		return groupRightEqualNo;
+	}
+
+	public void setGroupRightEqualNo(int groupRightEqualNo) {
+		this.groupRightEqualNo = groupRightEqualNo;
+	}
+
+	
 	
 	public int getGroupLeftNo() {
 		return groupLeftNo;
@@ -72,22 +113,6 @@ public class SectionData {
 	public boolean getRightBorder() {
 		return rightBorder;
 	}
-
-	/**
-	 * Номер группы секций справа.
-	 * Группой является оборудование стоящее рядом
-	 */
-	private int groupRightNo;
-	/**
-	 * Номер секции слева.
-	 * Совпадает с sectionNo
-	 */
-	private int leftNo;
-	/**
-	 * Номер секции справа.
-	 * Совпадает с sectionNo
-	 */
-	private int rightNo;
 	
 	public int getId() {
 		return id;
@@ -268,5 +293,13 @@ public class SectionData {
 			}
 		}
 		return secTag;
+	}
+
+	public int getSectionFixtureCount() {
+		return sectionFixtureCount;
+	}
+
+	public void setSectionFixtureCount(int sectionFixtureCount) {
+		this.sectionFixtureCount = sectionFixtureCount;
 	}
 }

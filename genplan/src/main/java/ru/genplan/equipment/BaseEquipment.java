@@ -12,7 +12,8 @@ import org.apache.logging.log4j.Logger;
 
 public class BaseEquipment implements IEquipment {
 	private static final Logger LOG = LogManager.getLogger(BaseEquipment.class);
-	private List<IFixture> fixtures;
+	private final List<IFixture> fixtures;
+
 	int x;
 	int y;
 	int width;
@@ -65,25 +66,7 @@ public class BaseEquipment implements IEquipment {
 		return aWidth;
 	}
 
-	@Override
-	public IEquipment generate(int x, int y, int width, int height) {
-		List<? extends IFixture> temp_fixs = null;
-		List<IFixture> fixs = null;
-		this.x = x;
-		this.y = y;
-		this.width = width;
-		this.height = height;
-		for(IFixture fix:fixtures) {
-			temp_fixs = fix.generate(x, y, width, height);
-			if (temp_fixs!= null) {
-			  if (fixs==null) {
-				  fixs = new ArrayList<IFixture>();
-			  }
-			  fixs.addAll(temp_fixs);
-			}
-		}
-		return new BaseEquipment(fixs);
-	}
+	
 
 	@Override
 	public void remove() {
@@ -123,6 +106,26 @@ public class BaseEquipment implements IEquipment {
 	}
 
 	@Override
+	public IEquipment generate(int x, int y, int width, int height) {
+		List<? extends IFixture> temp_fixs = null;
+		List<IFixture> fixs = null;
+		this.x = x;
+		this.y = y;
+		this.width = width;
+		this.height = height;
+		for(IFixture fix:fixtures) {
+			temp_fixs = fix.generate(x, y, width, height);
+			if (temp_fixs!= null) {
+			  if (fixs==null) {
+				  fixs = new ArrayList<IFixture>();
+			  }
+			  fixs.addAll(temp_fixs);
+			}
+		}
+		return new BaseEquipment(fixs);
+	}
+
+	@Override
 	public IEquipment generate(Predicate<IFixture> pred, int x, int y, int width, int height) {
 		List<? extends IFixture> temp_fixs = null;
 		List<IFixture> local_fixs = fixtures.stream().filter(pred).collect(Collectors.toList());
@@ -149,5 +152,9 @@ public class BaseEquipment implements IEquipment {
 	public IEquipment generate(Predicate<IFixture> pred) {
 		List<IFixture> local_fixs = fixtures.stream().filter(pred).collect(Collectors.toList());
 		return new BaseEquipment(local_fixs);
+	}
+	
+	public List<IFixture> getFixtures() {
+		return fixtures;
 	}
 }

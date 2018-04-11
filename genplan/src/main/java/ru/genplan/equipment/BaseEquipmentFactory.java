@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 
 import ru.genplan.equipment.data.FixtureData;
 import ru.genplan.equipment.data.SectionData;
-import ru.genplan.mybatis.mappers.EquipmentService;
+import ru.genplan.mybatis.equipment.EquipmentService;
 
 public class BaseEquipmentFactory implements IEquipmentFactory {
    private static final Logger LOG = LogManager.getLogger(BaseEquipmentFactory.class);
@@ -24,7 +24,9 @@ public class BaseEquipmentFactory implements IEquipmentFactory {
 	private Map<Integer,SectionData> initSections(List<SectionData> sec) {
 	   Map<Integer,SectionData> result = new HashMap<>();
 	   int curX = -1000;
+	   String curEquipment = null;
        int groupNo = 0;
+       int groupEqualNo = 0;
 	   int secNo = 1;
 	   sec.sort(Comparator.comparingInt(SectionData::getSectionNo));
 	   for(SectionData s:sec) {
@@ -32,23 +34,37 @@ public class BaseEquipmentFactory implements IEquipmentFactory {
 		      // Увеличиваем счетчик группы
 			  groupNo++;
 		  }
+		  if (curEquipment != s.getName()) {
+		      // Увеличиваем счетчик группы
+			  groupEqualNo++;
+		  }
 		  s.setGroupLeftNo(groupNo);
+		  s.setGroupLeftEqualNo(groupEqualNo);
 		  s.setLeftNo(s.getSectionNo());
 		  curX = s.getX() + s.getWidth();
+		  curEquipment = s.getName();
 	   }
 		   
 	   curX = -1000;
 	   groupNo = 0;
+	   groupEqualNo = 0;
+	   curEquipment = null;
 	   sec.sort(Comparator.comparingInt(SectionData::getSectionNo).reversed());
 	   for(SectionData s:sec) {
 		  if (curX != s.getX()+s.getWidth()) {
 			// Увеличиваем счетчик группы
 	   	    groupNo++;
 		  }
+		  if (curEquipment != s.getName()) {
+		      // Увеличиваем счетчик группы
+			  groupEqualNo++;
+		  }
 		  s.setGroupRightNo(groupNo);
+		  s.setGroupRightEqualNo(groupEqualNo);
 		  s.setRightNo(secNo);
 		  secNo++;
 		  curX = s.getX();
+		  curEquipment = s.getName();
 		  result.put(s.getSectionNo(), s);
 	   }
 	   return result;
@@ -127,6 +143,7 @@ public class BaseEquipmentFactory implements IEquipmentFactory {
 		  }
 		  //f.setRelativeUpFixNo(fixNum);
 		  fixNo = f.getFirstSectionNo();
+		  f.getSection().setSectionFixtureCount(f.getSection().getSectionFixtureCount()+1);
 	   }
 		   
 	   fixNo = -1;

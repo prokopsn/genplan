@@ -9,7 +9,6 @@ import java.util.List;
 
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -17,7 +16,7 @@ import ru.genplan.equipment.BaseFixture;
 import ru.genplan.equipment.IFixture;
 import ru.genplan.equipment.data.FixtureData;
 import ru.genplan.equipment.data.SectionData;
-import ru.genplan.mybatis.mappers.TestEquipmentService;
+import ru.genplan.mybatis.equipment.TestEquipmentService;
 
 @DisplayName("Test BaseFixture")
 public class TestBaseFixture {

@@ -8,12 +8,14 @@ import java.util.stream.Collectors;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import ru.genplan.block.data.BlockData;
 import ru.genplan.equipment.BaseEquipmentFactory;
 
 import ru.genplan.equipment.IEquipment;
 import ru.genplan.equipment.IEquipmentFactory;
 import ru.genplan.equipment.IFixture;
-import ru.genplan.mybatis.mappers.PredicateService;
+import ru.genplan.mybatis.block.BlockService;
+import ru.genplan.mybatis.predicate.PredicateService;
 import ru.genplan.predicate.GenplanPredicate;
 import ru.genplan.predicate.PredicateFactory;
 
@@ -42,7 +44,8 @@ public class TestMainClass {
 			System.out.println(s);
 		}
 		PredicateFactory<IFixture> pf = new PredicateFactory<IFixture>(1);
-		
+		List<BlockData> blData = new BlockService().getAllBlock(4);
+		System.out.println(blData.size());
 	    /*List<FixtureData> fixtures = new EquipmentService().getAllFixture(planogram_id);
 		List<SectionData> sections = new EquipmentService().getAllSection(planogram_id);
 		List<IFixture> fixs = new ArrayList<>();

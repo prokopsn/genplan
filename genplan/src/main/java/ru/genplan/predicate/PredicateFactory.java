@@ -8,7 +8,7 @@ import java.util.function.Predicate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import ru.genplan.mybatis.mappers.PredicateService;
+import ru.genplan.mybatis.predicate.PredicateService;
 
 public class PredicateFactory<T> {
 	private static final Logger LOG = LogManager.getLogger(PredicateFactory.class);

@@ -15,6 +15,7 @@
 		<typeAlias type="ru.genplan.predicate.GenplanPredicate" alias="genplanPredicate"/>
 		<typeAlias type="ru.genplan.predicate.GenplanLogicalOperation" alias="genplanLogicalOperation"/>
 		<typeAlias type="ru.genplan.predicate.GenplanPredicateMember" alias="genplanPredicateMember"/>
+		<typeAlias type="ru.genplan.block.data.BlockData" alias="blockData"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -28,7 +29,8 @@
 		</environment>
 	</environments>
 	<mappers>
-      <mapper class="ru.genplan.mybatis.mappers.EquipmentMapper" />
-      <mapper class="ru.genplan.mybatis.mappers.PredicateMapper" />
+      <mapper class="ru.genplan.mybatis.equipment.EquipmentMapper" />
+      <mapper class="ru.genplan.mybatis.predicate.PredicateMapper" />
+      <mapper class="ru.genplan.mybatis.block.BlockMapper" />
     </mappers>
 </configuration>

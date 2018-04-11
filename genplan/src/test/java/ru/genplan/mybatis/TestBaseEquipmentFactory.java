@@ -2,20 +2,13 @@ package ru.genplan.mybatis;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
-import java.util.Arrays;
-import java.util.function.Predicate;
-
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
 import ru.genplan.equipment.BaseEquipmentFactory;
-import ru.genplan.equipment.EquipmentPredicatesOld;
 import ru.genplan.equipment.IEquipment;
-import ru.genplan.equipment.IFixture;
-import ru.genplan.mybatis.mappers.TestEquipmentService;
+
+
 
 @DisplayName("Test BaseFixture & BaseEquipmentFactory")
 public class TestBaseEquipmentFactory {
@@ -46,7 +39,7 @@ public class TestBaseEquipmentFactory {
 		     );	
 	}
 	
-	@Test
+	/*@Test
 	@DisplayName("√енераци€ нового оборудовани€ по предикатам")
 	public void testGeneratePredicate() {
 		Predicate<IFixture> pf;
@@ -55,5 +48,5 @@ public class TestBaseEquipmentFactory {
 						                                       EquipmentPredicatesOld.checkX(800)))
 			   ,EquipmentPredicatesOld.checkUpFixtueNum(1)));
 		baseEq.generate(pf,0,0,1165,182);
-	}
+	}*/
 }

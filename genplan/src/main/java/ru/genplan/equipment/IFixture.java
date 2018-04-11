@@ -141,4 +141,17 @@ public interface IFixture {
 	public int getHeight();
 	
 	public int getSectionFixtureCount();
+	
+	public int getGroupLeftEqualNo();
+
+	public int getGroupRightEqualNo();
+	
+	public int getGroupLeftNo();
+	
+	public int getGroupRightNo();
+	
+	public int getLeftNo();
+	
+	public int getRightNo();
+
 }

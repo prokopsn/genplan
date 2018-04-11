@@ -8,9 +8,14 @@
       <setting name="mapUnderscoreToCamelCase" value="true"/>
     </settings>
 	<typeAliases>
-		<typeAlias type="ru.genplan.mybatis.mappers.SectionData" alias="section"/>
-		<typeAlias type="ru.genplan.mybatis.mappers.FixtureData" alias="fixture" />
-		<typeAlias type="ru.genplan.mybatis.mappers.PlanogramData" alias="planogram"/>
+		<typeAlias type="ru.genplan.equipment.data.SectionData" alias="section"/>
+		<typeAlias type="ru.genplan.equipment.data.FixtureData" alias="fixture" />
+		<typeAlias type="ru.genplan.equipment.data.PlanogramData" alias="planogram"/>
+		<typeAlias type="ru.genplan.predicate.PredicateValue" alias="predicateValue"/>
+		<typeAlias type="ru.genplan.predicate.GenplanPredicate" alias="genplanPredicate"/>
+		<typeAlias type="ru.genplan.predicate.GenplanLogicalOperation" alias="genplanLogicalOperation"/>
+		<typeAlias type="ru.genplan.predicate.GenplanPredicateMember" alias="genplanPredicateMember"/>
+		<typeAlias type="ru.genplan.block.data.BlockData" alias="blockData"/>
 	</typeAliases>
 	<environments default="development">
 		<environment id="development">
@@ -24,6 +29,6 @@
 		</environment>
 	</environments>
 	<mappers>
-      <mapper class="ru.genplan.mybatis.mappers.TestEquipmentMapper" />
+      <mapper class="ru.genplan.mybatis.equipment.TestEquipmentMapper" />
     </mappers>
 </configuration>
