@@ -127,6 +127,13 @@ public interface IFixture {
 	 * @return
 	 */
 	public int getAvailableWidthRight(int x);
+	/**
+	 * Получение величины свободного места на полке между x и x1
+	 * @param x 
+	 * @param x1
+	 * @return
+	 */
+	public int getAvailableWidthBetween(int x, int x1);
 	
 	/**
 	 * 

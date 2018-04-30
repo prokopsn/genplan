@@ -12,8 +12,8 @@ import org.apache.logging.log4j.Logger;
 
 public class BaseEquipment implements IEquipment {
 	private static final Logger LOG = LogManager.getLogger(BaseEquipment.class);
+	
 	private final List<IFixture> fixtures;
-
 	int x;
 	int y;
 	int width;
@@ -66,7 +66,14 @@ public class BaseEquipment implements IEquipment {
 		return aWidth;
 	}
 
-	
+	@Override
+	public int getAvailableWidthBetween(int x, int x1) {
+		int aWidth = 0;
+		for(IFixture fix:fixtures) {
+			aWidth += fix.getAvailableWidthBetween(x,x1);
+		}
+		return aWidth;
+	}
 
 	@Override
 	public void remove() {
@@ -157,4 +164,6 @@ public class BaseEquipment implements IEquipment {
 	public List<IFixture> getFixtures() {
 		return fixtures;
 	}
+
+	
 }

@@ -71,6 +71,22 @@ public class BaseFixture implements IFixture {
 		return result;
 	}
 	
+	@Override
+	public int getAvailableWidthBetween(int x, int x1) {
+		if (x1<=x) return 0;
+		int result = Math.max(0, x1 - x);
+		LOG.debug("getAvailableWidthRight result="+result);
+		Iterator <? extends IFixture> it = fixtureUsed.iterator();
+		IFixture fix = null;
+		for(;it.hasNext();) {
+			fix = it.next();
+			if (fix.getX() + fix.getWidth() > x && fix.getX() < x1) {
+				result -= Math.min(x,fix.getX() + fix.getWidth()) - Math.max(x,fix.getX()); 
+			}
+		};
+		return result;
+	}
+	
 	FixtureData fixtureData;
 	private int x = -1;
 	private int width = -1;
@@ -367,4 +383,6 @@ public class BaseFixture implements IFixture {
 	public int getRightNo() {
 		return fixtureData.getSection().getRightNo();
 	}
+
+	
 }

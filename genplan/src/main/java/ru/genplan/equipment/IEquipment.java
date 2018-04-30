@@ -23,6 +23,8 @@ public interface IEquipment {
 	 */
 	public int getAvailableWidthRight(int x);
 	
+	public int getAvailableWidthBetween(int x, int x1);
+	
 	public IEquipment generate(int x, int y, int width, int height);
 	public IEquipment generate(Predicate<IFixture> pred, int x, int y, int width, int height);
 	public IEquipment generate(Predicate<IFixture> pred);
